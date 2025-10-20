@@ -1,15 +1,6 @@
 # ChatGPT Gemini Modifier
 
-A Chrome extension that automatically enhances ChatGPT responses using Google's Gemini AI. When you use ChatGPT, this extension intercepts the responses, sends them to Gemini with a customizable system prompt, and replaces the original output with the enhanced version.
-
-## Features
-
-- 🤖 Automatically detects and processes ChatGPT responses
-- ✨ Enhances responses using Google Gemini AI
-- 🎯 Anthropomorphizing slider with 5 personality levels (Technical to Personal)
-- 🔄 Toggle between original and modified responses
-- 🎨 Clean, integrated UI that blends with ChatGPT
-- 🔐 Secure API key storage using Chrome's sync storage
+A Chrome extension that automatically enhances ChatGPT responses using Google's Gemini AI. When you use ChatGPT, this extension intercepts the responses, sends them to Gemini with a customizable system prompt, and replaces the original output with the modified version.
 
 ## Prerequisites
 
