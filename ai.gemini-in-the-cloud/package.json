@@ -1,0 +1,8 @@
+{
+  "name": "chatgpt-gemini-modifier",
+  "version": "1.0.0",
+  "description": "Chrome extension that modifies ChatGPT responses using Google Gemini AI",
+  "private": true,
+  "author": "Your Name",
+  "license": "MIT"
+}

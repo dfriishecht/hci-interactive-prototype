@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        width: 400px;
+        padding: 15px;
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+          sans-serif;
+      }
+      h2 {
+        margin-top: 0;
+        color: #333;
+        font-size: 18px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #4caf50;
+      }
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+        font-family: inherit;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        width: 100%;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+      .status {
+        margin-top: 10px;
+        padding: 8px;
+        border-radius: 4px;
+        font-size: 13px;
+        text-align: center;
+      }
+      .status.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      .status.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      .status.hidden {
+        display: none;
+      }
+      .toggle-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+      .toggle-switch {
+        position: relative;
+        width: 50px;
+        height: 24px;
+      }
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 24px;
+      }
+      .slider:before {
+        position: absolute;
+        content: '';
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+      input:checked + .slider {
+        background-color: #4caf50;
+      }
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+      .info {
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+        line-height: 1.4;
+      }
+      .slider-container {
+        margin: 10px 0;
+      }
+      .slider-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: #888;
+        margin-top: 5px;
+      }
+
+      input[type='range'] {
+        width: 100%;
+        margin: 8px 0;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 6px;
+        background: linear-gradient(
+          to right,
+          #64748b 0%,
+          #94a3b8 25%,
+          #a78bfa 50%,
+          #c084fc 75%,
+          #e879f9 100%
+        );
+        outline: none;
+        border-radius: 3px;
+        opacity: 0.9;
+        transition: opacity 0.2s;
+      }
+      input[type='range']:hover {
+        opacity: 1;
+      }
+      input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        background: white;
+        border: 2px solid #8b5cf6;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s;
+      }
+      input[type='range']::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        background: white;
+        border: 2px solid #8b5cf6;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      input[type='range']::-webkit-slider-thumb:hover {
+        transform: scale(1.1);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <h2>ChatGPT Gemini Modifier</h2>
+
+    <div class="toggle-container">
+      <label for="enabled" style="margin-bottom: 0">Enable Extension</label>
+      <label class="toggle-switch">
+        <input type="checkbox" id="enabled" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="apiKey">Gemini API Key</label>
+      <input
+        type="password"
+        id="apiKey"
+        placeholder="Enter your Gemini API key"
+      />
+      <div class="info">
+        Get your API key from
+        <a href="https://makersuite.google.com/app/apikey" target="_blank"
+          >Google AI Studio</a
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="anthropomorphize">Response Style</label>
+      <div class="slider-container">
+        <input
+          type="range"
+          id="anthropomorphize"
+          min="0"
+          max="4"
+          step="1"
+          value="2"
+        />
+        <div class="slider-labels">
+          <span>Technical</span>
+          <span>Balanced</span>
+          <span>Personable</span>
+        </div>
+      </div>
+
+      <div class="info">
+        Adjust how the AI personalizes and relates in its responses
+      </div>
+    </div>
+
+    <button id="save">Save Settings</button>
+
+    <div id="status" class="status hidden"></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
